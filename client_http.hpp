@@ -17,7 +17,7 @@ namespace SimpleWeb {
 
   public:
     /// Match condition for asio::read_until to match both standard and non-standard HTTP header endings.
-    std::pair<asio::buffers_iterator<asio::const_buffers_1>, bool> operator()(asio::buffers_iterator<asio::const_buffers_1> begin, asio::buffers_iterator<asio::const_buffers_1> end) {
+    std::pair<asio::buffers_iterator<const_buffer>, bool> operator()(asio::buffers_iterator<const_buffer> begin, asio::buffers_iterator<const_buffer> end) {
       auto it = begin;
       for(; it != end; ++it) {
         if(*it == '\n') {

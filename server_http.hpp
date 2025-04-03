@@ -135,7 +135,7 @@ namespace SimpleWeb {
       }
 
     public:
-      std::size_t size() noexcept {
+      std::size_t size() const noexcept {
         return streambuf->size();
       }
 
@@ -209,11 +209,11 @@ namespace SimpleWeb {
       friend class ServerBase<socket_type>;
 
     public:
-      std::size_t size() noexcept {
+      std::size_t size() const noexcept {
         return streambuf.size();
       }
       /// Convenience function to return content as std::string.
-      std::string string() noexcept {
+      std::string string() const noexcept {
         return std::string(asio::buffers_begin(streambuf.data()), asio::buffers_end(streambuf.data()));
       }
 
